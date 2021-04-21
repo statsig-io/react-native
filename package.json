@@ -1,0 +1,39 @@
+{
+  "name": "private-react-native",
+  "version": "1.0.0",
+  "description": "Statsig SDK to be used in React Native (non Expo) applications",
+  "main": "index.js",
+  "files": [
+    "index.d.ts",
+    "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/statsig-io/react-native.git"
+  },
+  "author": "Statsig, Inc.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/statsig-io/react-native/issues"
+  },
+  "keywords": [
+    "feature gate",
+    "feature flag",
+    "continuous deployment",
+    "ci",
+    "ab test"
+  ],
+  "homepage": "https://www.statsig.com",
+  "dependencies": {
+    "js-sha256": "^0.9.0",
+    "statsig-js-client-sdk": "^1.0.25",
+    "uuid": "^3.4.0"
+  },
+  "peerDependencies": {
+    "@react-native-async-storage/async-storage": "^1.15.2",
+    "react-native": ">=0.60.0",
+    "react-native-device-info": "^8.1.0",
+    "react-native-get-random-values": "^1.6.0"
+  },
+  "types": "index.d.ts"
+}
