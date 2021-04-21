@@ -1,6 +1,6 @@
 ## Statsig React Native SDK
 
-The Statsig SDK for React Native (non Expo) applications. If you're using Expo, try [https://github.com/statsig-io/react-native-expo](https://github.com/statsig-io/react-native-expo).
+The Statsig SDK for React Native (non Expo) applications. Note that if you're using Expo, use [https://github.com/statsig-io/react-native-expo](https://github.com/statsig-io/react-native-expo) instead.
 
 Statsig helps you move faster with Feature Gates and Dynamic Configs. If you're new to Statsig, create an account at [statsig.com](https://www.statsig.com).
 
