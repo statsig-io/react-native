@@ -1,5 +1,5 @@
 {
-  "name": "private-react-native",
+  "name": "statsig-react-native",
   "version": "1.0.0",
   "description": "Statsig SDK to be used in React Native (non Expo) applications",
   "main": "index.js",
