@@ -1,6 +1,6 @@
 {
   "name": "statsig-react-native",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Statsig SDK to be used in React Native (non Expo) applications",
   "main": "index.js",
   "files": [
@@ -26,7 +26,7 @@
   "homepage": "https://www.statsig.com",
   "dependencies": {
     "js-sha256": "^0.9.0",
-    "statsig-js-client-sdk": "^1.0.25",
+    "statsig-js": "^1.1.0",
     "uuid": "^3.4.0"
   },
   "peerDependencies": {
