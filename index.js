@@ -6,7 +6,7 @@ import DeviceInfo from 'react-native-device-info';
 
 statsig._setReactNativeDependencies(
   {
-    sdkType: require('./package.json')?.name,
+    sdkType: 'react-native-client',
     sdkVersion: require('./package.json')?.version,
   },
   AsyncStorage,
