@@ -5,6 +5,7 @@ import 'react-native-get-random-values';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AppState, NativeModules, Platform } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
+const packageJson = require('../package.json');
 
 /**
  * Properties required to initialize the Statsig React SDK
@@ -61,7 +62,7 @@ export default function StatsigProvider({
       _reactNativeDependencies={{
         SDKPackageInfo: {
           sdkType: 'react-native-client',
-          sdkVersion: require('./package.json')?.version,
+          sdkVersion: packageJson?.version || '3.0.0+',
         },
         AsyncStorage: AsyncStorage,
         AppState: AppState,
