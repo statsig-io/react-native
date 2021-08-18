@@ -62,7 +62,7 @@ export default function StatsigProvider({
       _reactNativeDependencies={{
         SDKPackageInfo: {
           sdkType: 'react-native-client',
-          sdkVersion: packageJson?.version || '3.0.1+',
+          sdkVersion: packageJson?.version || '3.0.2+',
         },
         AsyncStorage: AsyncStorage,
         AppState: AppState,
