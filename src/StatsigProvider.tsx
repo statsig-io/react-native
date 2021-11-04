@@ -1,11 +1,11 @@
 import React from 'react';
 import { StatsigProvider as InternalProvider } from 'statsig-react';
-import statsig from 'statsig-js';
 import 'react-native-get-random-values';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AppState, NativeModules, Platform } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 const packageJson = require('../package.json');
+import type { StatsigUser, StatsigOptions, UUID } from 'statsig-react';
 
 /**
  * Properties required to initialize the Statsig React SDK
@@ -21,17 +21,27 @@ type Props = {
   /**
    * A Statsig User object.  Changing this will update the user and Gate values, causing a re-initialization
    */
-  user: statsig.StatsigUser;
+  user: StatsigUser;
 
   /**
    * Options for initializing the SDK, shared with the statsig-js SDK
    */
-  options?: statsig.StatsigOptions;
+  options?: StatsigOptions;
 
   /**
    * Waits for the SDK to initialize with updated values before rendering child components
    */
   waitForInitialization?: boolean;
+
+  /**
+   * Pass in react-native-uuid to replace uuid if your project does not work with uuid @see https://www.npmjs.com/package/react-native-uuid
+   */
+  reactNativeUUID?: UUID;
+
+  /**
+   * A loading component to render iff waitForInitialization is set to true, and the SDK is initializing
+   */
+  initializingComponent?: React.ReactNode | React.ReactNode[];
 };
 
 /**
@@ -51,6 +61,8 @@ export default function StatsigProvider({
   user,
   options,
   waitForInitialization,
+  reactNativeUUID,
+  initializingComponent,
 }: Props): JSX.Element {
   return (
     <InternalProvider
@@ -58,11 +70,12 @@ export default function StatsigProvider({
       user={user}
       options={options}
       waitForInitialization={waitForInitialization}
+      initializingComponent={initializingComponent}
       // @ts-ignore
       _reactNativeDependencies={{
         SDKPackageInfo: {
           sdkType: 'react-native-client',
-          sdkVersion: packageJson?.version || '3.0.2+',
+          sdkVersion: packageJson?.version || '4.0.0',
         },
         AsyncStorage: AsyncStorage,
         AppState: AppState,
@@ -71,6 +84,7 @@ export default function StatsigProvider({
         RNDevice: DeviceInfo,
         Constants: null,
         ExpoDevice: null,
+        ReactNativeUUID: reactNativeUUID ?? null,
       }}
     >
       {children}
