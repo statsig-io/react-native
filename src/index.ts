@@ -1,6 +1,5 @@
 import 'react-native-get-random-values';
 import {
-  Statsig,
   StatsigContext,
   useConfig,
   useExperiment,
@@ -9,6 +8,7 @@ import {
   DynamicConfig,
 } from 'statsig-react';
 import StatsigProvider from './StatsigProvider';
+import Statsig from './Statsig';
 
 export type {
   ConfigResult,
