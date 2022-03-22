@@ -1,24 +1,21 @@
 import 'react-native-get-random-values';
 import {
-  StatsigContext,
+  DynamicConfig,
+  Layer, StatsigContext,
   useConfig,
   useExperiment,
   useGate,
-  useStatsigLogEffect,
-  DynamicConfig,
+  useLayer,
+  useStatsigLogEffect
 } from 'statsig-react';
-import StatsigProvider from './StatsigProvider';
 import Statsig from './Statsig';
+import StatsigProvider from './StatsigProvider';
 
 export type {
   ConfigResult,
   GateResult,
-  StatsigUser,
-  StatsigOptions,
-  StatsigEnvironment,
-  StatsigOverrides,
+  LayerResult, StatsigEnvironment, StatsigOptions, StatsigOverrides, StatsigUser
 } from 'statsig-react';
-
 export {
   Statsig,
   StatsigContext,
@@ -26,6 +23,10 @@ export {
   useConfig,
   useExperiment,
   useGate,
+  useLayer,
   useStatsigLogEffect,
   DynamicConfig,
+  Layer
 };
+
+
