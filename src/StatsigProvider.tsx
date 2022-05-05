@@ -39,6 +39,19 @@ type Props = {
   reactNativeUUID?: UUID;
 
   /**
+   * A key for stable mounting/unmounting when updating the user.  If this key is set and changes when the user object changes
+   * (or if it is not provided) Then the children of StatsigProvider will unmount/remount with the async update.
+   * If this key is set and does not change, then the children of StatsigProvider will continue to be mounted,
+   * and it will trigger a rerender after updateUser completes
+   */
+  mountKey?: string;
+
+  /**
+   * If set to true, will automatically call shutdown() on Statsig to flush logs when the provider is unmounted
+   */
+  shutdownOnUnmount?: boolean;
+
+  /**
    * A loading component to render iff waitForInitialization is set to true, and the SDK is initializing
    */
   initializingComponent?: React.ReactNode | React.ReactNode[];
@@ -62,6 +75,8 @@ export default function StatsigProvider({
   options,
   waitForInitialization,
   reactNativeUUID,
+  mountKey,
+  shutdownOnUnmount,
   initializingComponent,
 }: Props): JSX.Element {
   return (
@@ -86,6 +101,8 @@ export default function StatsigProvider({
         ExpoDevice: null,
         ReactNativeUUID: reactNativeUUID ?? null,
       }}
+      mountKey={mountKey}
+      shutdownOnUnmount={shutdownOnUnmount}
     >
       {children}
     </InternalProvider>
