@@ -1,0 +1,88 @@
+lockfileVersion: 5.4
+
+specifiers:
+  '@types/react': ^17.0.13
+  '@types/react-native': ^0.64.10
+  js-sha256: ^0.9.0
+  statsig-react: 1.20.0
+  typescript: ^4.3.5
+  uuid: ^3.4.0
+
+dependencies:
+  js-sha256: 0.9.0
+  statsig-react: 1.20.0
+  uuid: 3.4.0
+
+devDependencies:
+  '@types/react': 17.0.52
+  '@types/react-native': 0.64.29
+  typescript: 4.9.3
+
+packages:
+
+  /@types/prop-types/15.7.5:
+    resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
+    dev: true
+
+  /@types/react-native/0.64.29:
+    resolution: {integrity: sha512-nCa4rcAlilTWL7wEUwTnxo6HjxQvFjVeDPK9taglDvId06pw/eOUu2NozfpwY91o8K7UdZn8VUoDRaGt2i8LBA==}
+    dependencies:
+      '@types/react': 17.0.52
+    dev: true
+
+  /@types/react/17.0.52:
+    resolution: {integrity: sha512-vwk8QqVODi0VaZZpDXQCmEmiOuyjEFPY7Ttaw5vjM112LOq37yz1CDJGrRJwA1fYEq4Iitd5rnjd1yWAc/bT+A==}
+    dependencies:
+      '@types/prop-types': 15.7.5
+      '@types/scheduler': 0.16.2
+      csstype: 3.1.1
+    dev: true
+
+  /@types/scheduler/0.16.2:
+    resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
+    dev: true
+
+  /csstype/3.1.1:
+    resolution: {integrity: sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==}
+    dev: true
+
+  /js-sha256/0.9.0:
+    resolution: {integrity: sha512-sga3MHh9sgQN2+pJ9VYZ+1LPwXOxuBJBA5nrR5/ofPfuiJBE2hnjsaN8se8JznOmGLN2p49Pe5U/ttafcs/apA==}
+    dev: false
+
+  /statsig-js/4.28.0:
+    resolution: {integrity: sha512-UNEno+etqmBUM/zYUpfKREGiFfWr4NkPBcZ6NuqG9VOFpCcGDYCNQxScAKBzeMQZQvK2Dtls50H4V8s1rRPvgQ==}
+    dependencies:
+      js-sha256: 0.9.0
+      uuid: 8.3.2
+      whatwg-fetch: 3.6.2
+    dev: false
+
+  /statsig-react/1.20.0:
+    resolution: {integrity: sha512-Fgd1R7Kd0+9nQA0Li4hQS+zn3IKWn/OYatTdj6GSDDa+P+pmIwQjuvlYJFDj/uIeKz5fgwzpAw+EXJN55Rwy5A==}
+    peerDependencies:
+      react: ^16.6.3 || ^17.0.0 || ^18.0.0
+    dependencies:
+      statsig-js: 4.28.0
+    dev: false
+
+  /typescript/4.9.3:
+    resolution: {integrity: sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
+    dev: true
+
+  /uuid/3.4.0:
+    resolution: {integrity: sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==}
+    deprecated: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+    hasBin: true
+    dev: false
+
+  /uuid/8.3.2:
+    resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    hasBin: true
+    dev: false
+
+  /whatwg-fetch/3.6.2:
+    resolution: {integrity: sha512-bJlen0FcuU/0EMLrdbJ7zOnW6ITZLrZMIarMUVmdKtsGvZna8vxKYaexICWPfZ8qwf9fzNq+UEIZrnSaApt6RA==}
+    dev: false
