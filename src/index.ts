@@ -3,10 +3,14 @@ import {
   DynamicConfig,
   Layer, StatsigContext,
   useConfig,
+  useConfigWithExposureLoggingDisabled,
   useExperiment,
+  useExperimentWithExposureLoggingDisabled,
   useGate,
+  useGateWithExposureLoggingDisabled,
   useLayer,
-  useStatsigLogEffect
+  useLayerWithExposureLoggingDisabled,
+  useStatsigLogEffect,
 } from 'statsig-react';
 import Statsig from './Statsig';
 import StatsigProvider from './StatsigProvider';
@@ -21,9 +25,13 @@ export {
   StatsigContext,
   StatsigProvider,
   useConfig,
+  useConfigWithExposureLoggingDisabled,
   useExperiment,
+  useExperimentWithExposureLoggingDisabled,
   useGate,
+  useGateWithExposureLoggingDisabled,
   useLayer,
+  useLayerWithExposureLoggingDisabled,
   useStatsigLogEffect,
   DynamicConfig,
   Layer
