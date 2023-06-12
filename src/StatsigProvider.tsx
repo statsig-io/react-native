@@ -73,20 +73,45 @@ type Props = {
  * @param props
  * @returns
  */
-export default function StatsigProvider(props: Props): JSX.Element {
-  (props as any)._reactNativeDependencies = {
-    SDKPackageInfo: {
-      sdkType: 'react-native-client',
-      sdkVersion: packageJson?.version || '4.0.0',
-    },
-    AsyncStorage: AsyncStorage,
-    AppState: AppState,
-    NativeModules: NativeModules,
-    Platform: Platform,
-    RNDevice: DeviceInfo,
-    Constants: null,
-    ExpoDevice: null,
-    ReactNativeUUID: props.reactNativeUUID ?? null,
-  };
-  return <InternalProvider {...props} />;
+export default function StatsigProvider({
+  children,
+  sdkKey,
+  user,
+  options,
+  waitForCache,
+  waitForInitialization,
+  reactNativeUUID,
+  mountKey,
+  shutdownOnUnmount,
+  initializingComponent,
+}: Props): JSX.Element {
+  return (
+    <InternalProvider
+      sdkKey={sdkKey}
+      user={user}
+      options={options}
+      waitForCache={waitForCache}
+      waitForInitialization={waitForInitialization}
+      initializingComponent={initializingComponent}
+      // @ts-ignore
+      _reactNativeDependencies={{
+        SDKPackageInfo: {
+          sdkType: 'react-native-client',
+          sdkVersion: packageJson?.version || '4.0.0',
+        },
+        AsyncStorage: AsyncStorage,
+        AppState: AppState,
+        NativeModules: NativeModules,
+        Platform: Platform,
+        RNDevice: DeviceInfo,
+        Constants: null,
+        ExpoDevice: null,
+        ReactNativeUUID: reactNativeUUID ?? null,
+      }}
+      mountKey={mountKey}
+      shutdownOnUnmount={shutdownOnUnmount}
+    >
+      {children}
+    </InternalProvider>
+  );
 }
