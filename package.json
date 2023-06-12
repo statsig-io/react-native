@@ -1,6 +1,6 @@
 {
   "name": "statsig-react-native",
-  "version": "4.9.2",
+  "version": "4.10.0",
   "description": "Statsig SDK to be used in React Native (non Expo) applications",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
