@@ -29,7 +29,12 @@ type Props = {
   options?: StatsigOptions;
 
   /**
-   * Waits for the SDK to initialize with updated values before rendering child components
+   * Waits for the SDK to load any cached values before rendering child components
+   */
+  waitForCache?: boolean;
+
+  /**
+   * Waits for the SDK to initialize with updated values from the network before rendering child components
    */
   waitForInitialization?: boolean;
 
@@ -68,43 +73,20 @@ type Props = {
  * @param props
  * @returns
  */
-export default function StatsigProvider({
-  children,
-  sdkKey,
-  user,
-  options,
-  waitForInitialization,
-  reactNativeUUID,
-  mountKey,
-  shutdownOnUnmount,
-  initializingComponent,
-}: Props): JSX.Element {
-  return (
-    <InternalProvider
-      sdkKey={sdkKey}
-      user={user}
-      options={options}
-      waitForInitialization={waitForInitialization}
-      initializingComponent={initializingComponent}
-      // @ts-ignore
-      _reactNativeDependencies={{
-        SDKPackageInfo: {
-          sdkType: 'react-native-client',
-          sdkVersion: packageJson?.version || '4.0.0',
-        },
-        AsyncStorage: AsyncStorage,
-        AppState: AppState,
-        NativeModules: NativeModules,
-        Platform: Platform,
-        RNDevice: DeviceInfo,
-        Constants: null,
-        ExpoDevice: null,
-        ReactNativeUUID: reactNativeUUID ?? null,
-      }}
-      mountKey={mountKey}
-      shutdownOnUnmount={shutdownOnUnmount}
-    >
-      {children}
-    </InternalProvider>
-  );
+export default function StatsigProvider(props: Props): JSX.Element {
+  (props as any)._reactNativeDependencies = {
+    SDKPackageInfo: {
+      sdkType: 'react-native-client',
+      sdkVersion: packageJson?.version || '4.0.0',
+    },
+    AsyncStorage: AsyncStorage,
+    AppState: AppState,
+    NativeModules: NativeModules,
+    Platform: Platform,
+    RNDevice: DeviceInfo,
+    Constants: null,
+    ExpoDevice: null,
+    ReactNativeUUID: props.reactNativeUUID ?? null,
+  };
+  return <InternalProvider {...props} />;
 }
