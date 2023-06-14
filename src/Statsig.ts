@@ -1,11 +1,14 @@
-import { Statsig as StatsigInternal } from 'statsig-react';
-import 'react-native-get-random-values';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AppState, NativeModules, Platform } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
-const packageJson = require('../package.json');
-import type { StatsigUser, StatsigOptions, UUID } from 'statsig-react';
-import { staticImplements, StatsigStatic } from 'statsig-react';
+import 'react-native-get-random-values';
+import type { StatsigOptions, StatsigUser, UUID } from 'statsig-react';
+import {
+  Statsig as StatsigInternal,
+  StatsigStatic,
+  staticImplements,
+} from 'statsig-react';
+import { version as sdkVersion } from './SDKVersion';
 
 @staticImplements<StatsigStatic>()
 export default class Statsig extends StatsigInternal {
@@ -19,7 +22,7 @@ export default class Statsig extends StatsigInternal {
       if (!StatsigInternal.initializeCalled()) {
         StatsigInternal.setSDKPackageInfo({
           sdkType: 'react-native-client',
-          sdkVersion: packageJson?.version || '4.3.0',
+          sdkVersion,
         });
         StatsigInternal.setAsyncStorage(AsyncStorage);
 

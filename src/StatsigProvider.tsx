@@ -1,11 +1,11 @@
-import React from 'react';
-import { StatsigProvider as InternalProvider } from 'statsig-react';
-import 'react-native-get-random-values';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import type { ReactNode } from 'react';
 import { AppState, NativeModules, Platform } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
-const packageJson = require('../package.json');
-import type { StatsigUser, StatsigOptions, UUID } from 'statsig-react';
+import 'react-native-get-random-values';
+import type { StatsigOptions, StatsigUser, UUID } from 'statsig-react';
+import { StatsigProvider as InternalProvider } from 'statsig-react';
+import { version as sdkVersion } from './SDKVersion';
 
 /**
  * Properties required to initialize the Statsig React SDK
@@ -59,7 +59,7 @@ type Props = {
   /**
    * A loading component to render iff waitForInitialization is set to true, and the SDK is initializing
    */
-  initializingComponent?: React.ReactNode | React.ReactNode[];
+  initializingComponent?: ReactNode | ReactNode[];
 };
 
 /**
@@ -97,7 +97,7 @@ export default function StatsigProvider({
       _reactNativeDependencies={{
         SDKPackageInfo: {
           sdkType: 'react-native-client',
-          sdkVersion: packageJson?.version || '4.0.0',
+          sdkVersion,
         },
         AsyncStorage: AsyncStorage,
         AppState: AppState,
