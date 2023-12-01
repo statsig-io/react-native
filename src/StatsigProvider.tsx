@@ -7,6 +7,8 @@ import type { StatsigOptions, StatsigUser, UUID } from 'statsig-react';
 import { StatsigProvider as InternalProvider } from 'statsig-react';
 import { version as sdkVersion } from './SDKVersion';
 
+export declare type UpdateUserFunc = React.Dispatch<React.SetStateAction<StatsigUser>>;
+
 /**
  * Properties required to initialize the Statsig React SDK
  */
@@ -60,6 +62,12 @@ type Props = {
    * A loading component to render iff waitForInitialization is set to true, and the SDK is initializing
    */
   initializingComponent?: ReactNode | ReactNode[];
+  
+  /**
+  * A function to keep your reference to a StatsigUser in-sync with Statsig's reference.
+  * This is required if you want to use the useUpdateUser hook.
+  */
+  setUser?: UpdateUserFunc;
 };
 
 /**
@@ -84,6 +92,7 @@ export default function StatsigProvider({
   mountKey,
   shutdownOnUnmount,
   initializingComponent,
+  setUser,
 }: Props): JSX.Element {
   return (
     <InternalProvider
@@ -110,6 +119,7 @@ export default function StatsigProvider({
       }}
       mountKey={mountKey}
       shutdownOnUnmount={shutdownOnUnmount}
+      setUser={setUser}
     >
       {children}
     </InternalProvider>

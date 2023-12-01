@@ -11,6 +11,7 @@ import {
   useLayer,
   useLayerWithExposureLoggingDisabled,
   useStatsigLogEffect,
+  useUpdateUser,
 } from 'statsig-react';
 import Statsig from './Statsig';
 import StatsigProvider from './StatsigProvider';
@@ -33,6 +34,7 @@ export {
   useLayer,
   useLayerWithExposureLoggingDisabled,
   useStatsigLogEffect,
+  useUpdateUser,
   DynamicConfig,
   Layer
 };
