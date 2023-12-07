@@ -1,6 +1,6 @@
 {
   "name": "statsig-react-native",
-  "version": "4.12.0",
+  "version": "4.13.0",
   "description": "Statsig SDK to be used in React Native (non Expo) applications",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -25,7 +25,7 @@
   ],
   "homepage": "https://www.statsig.com",
   "dependencies": {
-    "statsig-react": "^1.32.0"
+    "statsig-react": "^1.33.0"
   },
   "peerDependencies": {
     "@react-native-async-storage/async-storage": "^1.15.10",
